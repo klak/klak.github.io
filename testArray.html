@@ -19,6 +19,10 @@
 			background-color:blue;
 
 		}
+
+		.grid td.clicked3{
+			background-color: none;
+		}
 		</style>
 	</head>
 
@@ -53,6 +57,7 @@
 	            var cell = tr.appendChild(document.createElement('td'));
 	            //adds numbers to the cells
 	            //cell.innerHTML = ++i;
+	            cell.id = ++i;
 
 	            cell.addEventListener('click',(function(el,r,c,i){
 	                return function(){
@@ -68,6 +73,8 @@
 
 
 	function grid() {
+
+		var counter = 0;
 		// Grabs the number from the form in the height box
 	    var height = document.getElementById("heightInput").value;
 
@@ -81,13 +88,20 @@
 	            console.log("You clicked on row:",row);
 	            console.log("You clicked on col:",col);
 	            console.log("You clicked on item #:",i);
-
-	            el.className='clicked';
-	            var prevRow = row;
-	            var preCol = col;
 	            
-	            if (lastClicked) lastClicked.className='';
-	            lastClicked = el;
+
+	            // Uses the class name to determine if the box has been clicked
+	            
+	            if(el.className == ''){
+	            	el.className = 'clicked1';
+	            }
+	            else if(el.className == 'clicked1'){
+	            	el.className = 'clicked2';
+	            }
+	            else if(el.className == 'clicked2'){
+	            	el.className = '';
+	            }
+
 	        });
 
 	 	//prints the array
