@@ -11,18 +11,25 @@
 		    font-family:sans-serif; font-size:13px
 		}
 		.grid td.clicked1 {
-		    background-color:yellow;
-		    font-weight:bold; color:red;
+		    
+		    background-image: url("images/empChair.png");
+		    background-size: 33px 33px;
 		}
 
 		.grid td.clicked2{
-			background-color:blue;
+			background-image: url("images/occChair.png");
+			background-size: 33px 33px;
 
 		}
 
 		.grid td.clicked3{
 			background-color: none;
 		}
+
+		img{
+        width:33px; height:33px;
+		}
+
 		</style>
 	</head>
 
@@ -38,7 +45,6 @@
 			<input type = "number" id="widthInput">
 		</form>
 		<p>Click the button to get an array of the specified size</p>
-
 		<button onclick="grid()">Try it</button>
 
 	<script>
