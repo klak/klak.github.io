@@ -14,8 +14,8 @@
           </select>
           <br>
           <br>
-          <input type="button" value="Response Type" onclick="addAllInputs('dynamicInputs', document.myForm.inputSelect.value, false);">
-          <input type="button" value="New Question" onclick="addAllInputs('dynamicInputs', 'text', true);">
+          <input type="button" id="answer" value="Response Type" onclick="addAllInputs('dynamicInputs', document.myForm.inputSelect.value, false);" disabled="disabled">
+          <input type="button" id="question" value="New Question" onclick="addAllInputs('dynamicInputs', 'text', true);">
           
           <br>
      </p>
@@ -35,17 +35,24 @@ function addInput(divName){
           counter++;
      }
 }
-
-var counterText = 0;
+var counterAnswer = 0;
+var counterQuestion = 0;
 var counterRadioButton = 0;
 var counterCheckBox = 0;
 var counterTextArea = 0;
 function addAllInputs(divName, inputType, question){
      var newdiv = document.createElement('div');
+
+
      if (question == true){
-          newdiv.innerHTML = "<br>" + (counterText + 1) + ".)" + "<br><input type='text' name='myInputs[]'>";
-          counterText++;
+          newdiv.innerHTML = "<br>" + (counterQuestion + 1) + ".)" + "<br><input type='text' name='myInputs[]'>";
+          counterQuestion++;
      }
+
+     if(counterQuestion>0){
+          answer.disabled=false;
+     }
+
      else{
           switch(inputType) {
                case 'text':
